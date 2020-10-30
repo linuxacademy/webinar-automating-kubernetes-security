@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rb-nonprivileged
+  namespace: development
+roleRef:
+  kind: ClusterRole
+  name: cr-use-psp
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+- kind: ServiceAccount
+  name: nonprivileged
+  namespace: development
